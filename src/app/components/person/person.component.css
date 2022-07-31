@@ -1,0 +1,99 @@
+.row {
+    margin-top: 1rem;
+    padding: 2rem;
+    /* background-color:#ea3d63; */
+    border: 0.5rem dotted #ea3d63;
+    display: flex;
+    align-items: center;
+}
+
+/* div{
+    background-color:#ea3d63;
+} */
+.col-sm-2,
+.col-sm-4 {
+    text-align-last: center;
+}
+
+#myname {
+    font-weight: bold;
+    text-align: center;
+}
+
+.titlesection {
+    text-align: center;
+}
+
+/* Estilo de la foto de perfil */
+@media (min-width: 576px) {
+    #myphoto {
+        border-radius: 50%;
+        box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem #ea3d63;
+        /* position: absolute;*/
+        /* display: block; */
+    }
+
+    .img-fluid {
+        max-width: 90%;
+    }
+
+    #myname {
+        margin-top: 3rem;
+    }
+}
+
+@media (max-width: 575px) {
+    #myphoto {
+        border-radius: 50%;
+        box-shadow: 0.1rem 0.1rem 0.2rem 0.1rem #ea3d63;
+        position: relative;
+        /* display: block; */
+
+    }
+
+    #myname {
+        margin-top: 1.5rem;
+    }
+
+    .img-fluid {
+        max-width: 80%;
+    }
+}
+
+/* a {
+    color: white;
+    text-align: center;
+} */
+.boton {
+    width: 2em;
+    height: 2em;
+    color: white;
+    text-align: center;
+    align-items: center;
+    padding: .5em;
+    border-radius: 5px;
+    /* margin-top: 10px; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.btn-group{
+    justify-content: flex-end;
+}
+.btn-plus {
+    background: #ea3d63;
+    margin: 1%;
+}
+
+.btn-edit {
+    background: #9e3685;
+    margin: 1%;
+}
+.btn-delete {
+    background: #512ea9;
+    margin: 1%;
+}
+
+/*Colores rosa #dd3c69 #ea3d63 #e93d63 
+          azul #512ea9 #5330a9 #502fa8; 
+          lila #9e3685 #993688 #953588*/

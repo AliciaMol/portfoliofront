@@ -1,0 +1,41 @@
+#footer{
+    background-color: #ea3d63;
+    color: white;
+    font-size: 0.9rem;
+    margin-top: .5rem;
+    padding-top: .5rem;
+    
+}
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+img {
+    height: 2rem;   /*alto*/
+    margin: 0.2rem;
+}
+.social {
+    margin-right: 0.5rem;
+}
+/* Para la vista desde un celular*/
+@media (max-width: 575px){
+    footer {
+        flex-direction: column;
+        
+    }
+        .social {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 0.2em;
+    }
+
+    .social img {
+        margin: 0.2em;
+    }
+}
+
+/*Colores rosa #dd3c69 #ea3d63 #e93d63 
+          azul #512ea9 #5330a9 #502fa8; 
+          lila #9e3685 #993688 #953588*/

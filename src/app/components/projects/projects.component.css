@@ -1,0 +1,12 @@
+#projects{
+    margin-top: 0.5rem;
+    padding: 2rem;
+    border: 0.5rem dotted #ea3d63;
+}
+.project-img{
+    position: relative;
+    margin: 1rem auto;
+}
+/*Colores rosa #dd3c69 #ea3d63 #e93d63 
+          azul #512ea9 #5330a9 #502fa8; 
+          lila #9e3685 #993688 #953588*/

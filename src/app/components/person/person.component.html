@@ -1,0 +1,180 @@
+<div class="container-fluid" id="main-container" >
+    <div *ngFor="let person of persons">
+        <div class="row" >
+            <div class="float-right btn-group btn-group-sm">
+                <a (click)="onOpenModal('add', undefined)" class="boton btn-plus" data-original-title="Add"><i class="fa fa-plus"></i></a>
+                <!-- Aquí tenemos el BOTÓN con el lapicito para editar "fa fa pencil" -->
+                <a (click)="onOpenModal('edit',person)" class="boton btn-edit" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
+                <!-- y aquí el BOTÓN para eliminar "fa fa-times" -->
+                <a (click)="onOpenModal('delete', person)" class="boton btn-delete" data-original-title="Delete"><i class="fa fa-times"></i></a>
+            </div>
+            <div class="col-xs-12 col-sm-3">
+                <img id="myphoto" class="img-fluid" src="../../../assets/images/imgprofile.JPG"
+                    alt="foto de {{person.name}} {{person.lastname}}, propietaria de este portfolio.">
+            </div>
+            <div class="col-xs-12 col-sm-4">
+                <h4 id="myname">{{person?.name}} {{person?.lastname}}</h4>
+                <p>{{person?.ocupation}}</p>
+                <p>{{person?.email}}</p>
+            </div>
+            <div class="col-xs-12 col-sm-5">
+                <h1 class="titlesection"><span>ACERCA DE MÍ</span></h1>
+                <p>{{person?.aboutmedescription}}</p>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<!-- ADD Person Modal -->
+<div class="modal fade" id="addPersonModal" tabindex="-1" role="dialog" aria-labelledby="addPersonModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addPersonModalLabel">Add Person</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Aquí tenemos el formulario para agregar un nuevo persona, para poder referenciarlo establecemos un #, en este caso #addForm y le decimos que va a ser un "ngForm". Además debemos agregarle un ngSubmit, al que le asignaremos la función que definiremos en el app.component.ts y le pasaremos el form que acabamos de definir. -->
+                <form #addForm="ngForm" (ngSubmit)="onAddPerson(addForm)">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <!-- Para convertir al form en uno que Angular sea capaz de comprender, necesitamos agregarle el atributo ngModel name para cada una de las entradas que tenga dicho form y éstos atributos serán usados como claves para esas entradas-->
+                        <input type="text" ngModel name="name" class="form-control" id="name" placeholder="Name"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Lastname</label>
+                        <!-- Para convertir al form en uno que Angular sea capaz de comprender, necesitamos agregarle el atributo ngModel name para cada una de las entradas que tenga dicho form y éstos atributos serán usados como claves para esas entradas-->
+                        <input type="text" ngModel name="lastname" class="form-control" id="lastname"
+                            placeholder="Lastname" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" ngModel name="email" class="form-control" id="email" placeholder="Email"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ocupation">Ocupation</label>
+                        <input type="text" ngModel name="ocupation" class="form-control" id="ocupation"
+                            placeholder="Ocupation" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" ngModel name="phone" class="form-control" id="phone" placeholder="Phone"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="aboutmedescription">About me</label>
+                        <input type="text" ngModel name="aboutmedescription" class="form-control"
+                            id="aboutmedescription" placeholder="About me" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="imageurl">Image URL</label>
+                        <input type="text" ngModel name="imageurl" class="form-control" id="imageurl"
+                            placeholder="Image URL" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="add-person-form" class="btn btn-secondary"
+                            data-dismiss="modal">Close</button>
+                        <!-- Y al botón de tipo submit le vamos a agregar el atributo de desactivación para que se desactive el botón si el formulario es inválido, para eso usamos la referencia del formulario. Entonces si el form es invalido porque algún campo no se completó, esta condición va a ser cierta y el botón se desactivará. -->
+                        <button [disabled]="addForm.invalid" type="submit" class="btn btn-primary">Save
+                            person</button>
+                        <!-- Entonces cada vez que se haga click en este botón de tipo submit se llamará a la función indicada junto a la etiqueta del form indicada por (ngSubmit) = "onAddPerson(addForm)", donde el addForm deberá estar en formato JSON y será enviado al backend. -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- EDIT Modal -->
+<div class="modal fade" id="updatePersonModal" tabindex="-1" role="dialog" aria-labelledby="personUpdateModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="updatePersonModalLabel">Edit Persona: {{editPerson?.name}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Aquí tenemos el formulario para editar a una persona existente, para poder referenciarlo establecemos un #, en este caso #editForm y le decimos que va a ser un "ngForm". Además debemos agregarle un ngSubmit, al que le asignaremos la función que definiremos en el app.component.ts y le pasaremos el form que acabamos de definir. -->
+                <form #editForm="ngForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <!-- Para cada entrada vamos a establecer un ngModel igual a este persona para cada atributo, primero nos aseguramos que la persona existe con el "?" y luego lo vinculamos al nombre, entonces esta entrada se vinculará al persona en la clase para la entrada correspondiente al nombre. -->
+                        <input type="text" ngModel="{{editPerson?.name}}" name="name" class="form-control" id="name"
+                            aria-describedby="emailHelp" placeholder="Name">
+                    </div>
+                    <!-- en la estas dos lineas a continuación, el type es hidden, porque a la id y al codePerson no los vamos a actualizar, el código se genera cuando la persona se crea y el id nos sirve para representar todo el object de la persona real, si no ponemos esta info oculta y lo mandamos al backend no sabrá qué persona modificar y pensará que es un nuevo persona-->
+                    <input type="hidden" ngModel="{{editPerson?.id}}" name="id" class="form-control" id="id"
+                        placeholder="id">
+                    <div class="form-group">
+                        <label for="lastname">Lastname</label>
+                        <input type="text" ngModel="{{editPerson?.lastname}}" name="lastname" class="form-control"
+                            id="lastname" placeholder="Lastname">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" ngModel="{{editPerson?.email}}" name="email" class="form-control"
+                            id="email" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="ocupation">Ocupation</label>
+                        <input type="text" ngModel="{{editPerson?.ocupation}}" name="ocupation" class="form-control"
+                            id="ocupation" placeholder="ocupation">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="phone" ngModel="{{editPerson?.phone}}" name="phone" class="form-control"
+                            id="phone" placeholder="Phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="aboutmedescription">About me</label>
+                        <input type="text" ngModel="{{editPerson?.aboutmedescription}}" name="aboutmedescription"
+                            class="form-control" id="aboutmedescription" placeholder="About Me">
+                    </div>
+                    <div class="form-group">
+                        <label for="imageurl">Image URL</label>
+                        <input type="text" ngModel="{{editPerson?.imageurl}}" name="imageurl" class="form-control"
+                            id="imageurl" placeholder="Image URL">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                        <button (click)="onUpdatePerson(editForm.value)" data-dismiss="modal"
+                            class="btn btn-primary">Save changes</button>
+                        <!-- Deseamos que al hacer click en el botón "Save changes" para guardar los cambios, se debe llamar a la función onUpdatePerson(editForm.value). Para eso vamos a agregarle el atributo (click) al que le pasaremos el método onUpdatePerson al que debemos pasarle como parámetro la persona que debemos modificar. Vamos a enlazar una persona del template (html) a una persona del formulario, será el mismo persona. En el ts necesitaremos definir una variable para esto, updatePerson.Entonces usamos la referencia del formulario para pasarlo como parámetro, como un value, que es una representación en JSON de la entrada real porque vamos a atar cada entrada de este form con cada atributo del updatePerson que definimos en el ts-->
+                        <!-- Esta es otra manera de usar un formulario y enviarlo al Backend, es bastante similar a lo que hicimos en ADD PERSON, la diferencia es que en ADD pasamos el formulario completo, y en el ts cuando llamamos al servicio y a su método addPerson le pasamos el "addForm.value" que es la representación JSON en el ts. Aquí, en EDIT PERSON, desde el html al hacer click le estamos pasando a la función onUpdatePerson el "editForm.value" representado como una persona, ya que fuimos armando el JSON con cada una de las entradas.-->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- DELETE Modal -->
+<div class="modal fade" id="deletePersonModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModelLabel">Delete Person: {{deletePerson?.name}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete person {{deletePerson?.name}}?</p>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button (click)="onDeletePerson(deletePerson!.id)" class="btn btn-danger"
+                        data-dismiss="modal">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+#skills{
+    margin-top: 0.5rem;
+    padding: 2rem;
+    border: 0.5rem dotted #993688;
+}
+.d-flex{
+    justify-content: center
+}
+/*Colores rosa #dd3c69 #ea3d63 #e93d63 
+          azul #512ea9 #5330a9 #502fa8; 
+          lila #9e3685 #993688 #953588*/

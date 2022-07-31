@@ -1,0 +1,46 @@
+#education{
+    margin-top: 0.5rem;
+    padding: 2rem;
+    border: 0.5rem dotted #5330a9;
+}
+
+h2,
+h3 {
+    display: inline;
+    text-align: justify;
+}
+.study{
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    text-decoration: underline; /*#5330a9;*/
+}
+ul .cursos {
+    list-style-type: none;
+    /* no default bullets */
+}
+
+.edu-img{
+    max-width: 7rem; 
+    height: auto; 
+    position: relative;
+    margin: 1rem auto;
+}
+
+ ul .cursos:before {
+    content: "";
+    background-color: #993688;
+    border-radius: 50%;
+    display: inline-block;
+    margin-left: -1.6em;
+    margin-bottom: 0.5em;
+    margin-right: 1em;
+    height: .5em;
+    width: .5em;
+}
+/*p{
+    text-align: justify;
+} */
+
+/*Colores rosa #dd3c69 #ea3d63 #e93d63 
+          azul #512ea9 #5330a9 #502fa8; 
+          lila #9e3685 #993688 #953588*/
