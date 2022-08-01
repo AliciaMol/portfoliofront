@@ -1,31 +1,35 @@
-<div class="container-fluid" id="main-container" >
-    <div *ngFor="let person of persons">
-        <div class="row" >
-            <div class="float-right btn-group btn-group-sm">
-                <a (click)="onOpenModal('add', undefined)" class="boton btn-plus" data-original-title="Add"><i class="fa fa-plus"></i></a>
-                <!-- Aquí tenemos el BOTÓN con el lapicito para editar "fa fa pencil" -->
-                <a (click)="onOpenModal('edit',person)" class="boton btn-edit" data-original-title="Edit"><i class="fa fa-pencil"></i></a>
-                <!-- y aquí el BOTÓN para eliminar "fa fa-times" -->
-                <a (click)="onOpenModal('delete', person)" class="boton btn-delete" data-original-title="Delete"><i class="fa fa-times"></i></a>
+<div id="sectionaboutme">
+    <div class="container-fluid" id="main-container">
+        <div *ngFor="let person of persons">
+            <div class="row">
+                <div class="float-right btn-group btn-group-sm">
+                    <a (click)="onOpenModal('add', undefined)" class="boton btn-plus" data-original-title="Add"><i
+                            class="fa fa-plus"></i></a>
+                    <!-- Aquí tenemos el BOTÓN con el lapicito para editar "fa fa pencil" -->
+                    <a (click)="onOpenModal('edit',person)" class="boton btn-edit" data-original-title="Edit"><i
+                            class="fa fa-pencil"></i></a>
+                    <!-- y aquí el BOTÓN para eliminar "fa fa-times" -->
+                    <a (click)="onOpenModal('delete', person)" class="boton btn-delete" data-original-title="Delete"><i
+                            class="fa fa-times"></i></a>
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <img id="myphoto" class="img-fluid" src="{{person.imageurl}}"
+                        alt="foto de {{person.name}} {{person.lastname}}, propietaria de este portfolio.">
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <h4 id="myname">{{person?.name}} {{person?.lastname}}</h4>
+                    <p>{{person?.ocupation}}</p>
+                    <p>{{person?.email}}</p>
+                </div>
+                <div class="col-xs-12 col-sm-5">
+                    <h1 class="titlesection"><span>ACERCA DE MÍ</span></h1>
+                    <p>{{person?.aboutmedescription}}</p>
+                </div>
+
             </div>
-            <div class="col-xs-12 col-sm-3">
-                <img id="myphoto" class="img-fluid" src="../../../assets/images/imgprofile.JPG"
-                    alt="foto de {{person.name}} {{person.lastname}}, propietaria de este portfolio.">
-            </div>
-            <div class="col-xs-12 col-sm-4">
-                <h4 id="myname">{{person?.name}} {{person?.lastname}}</h4>
-                <p>{{person?.ocupation}}</p>
-                <p>{{person?.email}}</p>
-            </div>
-            <div class="col-xs-12 col-sm-5">
-                <h1 class="titlesection"><span>ACERCA DE MÍ</span></h1>
-                <p>{{person?.aboutmedescription}}</p>
-            </div>
-            
         </div>
     </div>
 </div>
-
 <!-- ADD Person Modal -->
 <div class="modal fade" id="addPersonModal" tabindex="-1" role="dialog" aria-labelledby="addPersonModalLabel"
     aria-hidden="true">
@@ -92,7 +96,8 @@
 </div>
 
 <!-- EDIT Modal -->
-<div class="modal fade" id="updatePersonModal" tabindex="-1" role="dialog" aria-labelledby="personUpdateModalLabel" aria-hidden="true">
+<div class="modal fade" id="updatePersonModal" tabindex="-1" role="dialog" aria-labelledby="personUpdateModalLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -121,8 +126,8 @@
 
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" ngModel="{{editPerson?.email}}" name="email" class="form-control"
-                            id="email" placeholder="Email">
+                        <input type="email" ngModel="{{editPerson?.email}}" name="email" class="form-control" id="email"
+                            placeholder="Email">
                     </div>
                     <div class="form-group">
                         <label for="ocupation">Ocupation</label>
@@ -131,8 +136,8 @@
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone</label>
-                        <input type="phone" ngModel="{{editPerson?.phone}}" name="phone" class="form-control"
-                            id="phone" placeholder="Phone">
+                        <input type="phone" ngModel="{{editPerson?.phone}}" name="phone" class="form-control" id="phone"
+                            placeholder="Phone">
                     </div>
                     <div class="form-group">
                         <label for="aboutmedescription">About me</label>
@@ -158,7 +163,8 @@
 </div>
 
 <!-- DELETE Modal -->
-<div class="modal fade" id="deletePersonModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel" aria-hidden="true">
+<div class="modal fade" id="deletePersonModal" tabindex="-1" role="dialog" aria-labelledby="deleteModelLabel"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
