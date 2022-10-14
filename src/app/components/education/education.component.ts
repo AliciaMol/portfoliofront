@@ -1,5 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { education } from 'src/app/model/education.model';
+import { Education } from 'src/app/model/education';
 import { EducationService } from 'src/app/service/education.service';
 
 @Component({
@@ -8,12 +9,30 @@ import { EducationService } from 'src/app/service/education.service';
   styleUrls: ['./education.component.css']
 })
 export class EducationComponent implements OnInit {
-  education: education = new education ("", "","", "","","", "");
+  public educations: Education[] = [];
 
   constructor(public educationService: EducationService) { }
 
-  ngOnInit(): void {
-    this.educationService.getEducation().subscribe(data => { this.education = data })
+  ngOnInit() {
+    this.getEducations();
+    console.log(this.educations);
   }
 
+  /*GET ALL */
+  
+  public getEducations(): void {
+    
+    
+    this.educationService.getEducations().subscribe({
+      
+      next: (response: Education[]) => {
+        this.educations = response;
+        console.log(this.educations);
+      },
+      
+      error: (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    });
+  }
 }

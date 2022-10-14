@@ -1,50 +1,58 @@
 <section id="education" class="container-fluid">
+    <div *ngFor="let education of educations">
+        <div class="row">
+            <h1>EDUCACIÓN</h1>
+            <div class="study">
+                <h2>ESTUDIOS UNIVERSITARIOS</h2>
+            </div>
+            <div class="col-lg-12">
+                <ul>
+                    <li class="col-12 card mb-3">
+                        <div class="row g-0">
+                            <div class="col-sm-3 d-flex align-items-center">
+                                <div class="edu-img"><img src={{education.logo_url}}
+                                        alt="Logo de la {{education.house_of_studies}}" class="img-fluid"></div>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="card-body">
 
+                                    <h2 class="card-title display-6 text-center">Título: {{education.title}}</h2>
+                                    <p class="card-text fs-4">Carrera: {{education.career}}. {{education.faculty}} -
+                                        {{education.house_of_studies}}</p>
+                                    <div class="col-sm">
+                                        <p class="fs-4"><span class="fw-bolder">Período: </span>{{education.start_date}}
+                                            - {{education.ending_date}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col-12 card mb-3">
+                        <div class="row g-0">
+                            <div class="col-sm-3 d-flex align-items-center">
+                                <div class="edu-img"><img src="../../../assets/images/unc3_c.jpg"
+                                        alt="Logo de la UNIVERSIDAD NACIONAL DE CORDOBA" class="img-fluid"></div>
+                            </div>
+                            <div class="col-sm-9">
+                                <div class="card-body">
+
+                                    <h2 class="card-title display-6 text-center">Título: Bachiller en Ciencias Aplicadas
+                                    </h2>
+                                    <p class="card-text fs-4">Carrera: Ingeniería en Computación. Facultad de Ciencias
+                                        Exactas, Físicas y Naturales - UNIVERSIDAD NACIONAL DE CORDOBA</p>
+                                    <div class="col-sm">
+                                        <p class="fs-4"><span class="fw-bolder">Período: </span>2002-2021</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
     <div class="row">
-        <h1>EDUCACIÓN</h1>
-        <div class="study">
-            <h2>ESTUDIOS UNIVERSITARIOS</h2>
-        </div>
-        <div class="col-lg-12">
-            <ul>
-                <li class="col-12 card mb-3">
-                    <div class="row g-0">
-                        <div class="col-sm-3 d-flex align-items-center">
-                            <div class="edu-img"><img src={{education.imageURL}} alt="Logo de la {{education.houseOfStudies}}"
-                                    class="img-fluid"></div>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="card-body">
-
-                                <h2 class="card-title display-6 text-center">Título: {{education.title}}</h2>
-                                <p class="card-text fs-4">Carrera: {{education.career}}. {{education.faculty}} - {{education.houseOfStudies}}</p>
-                                <div class="col-sm">
-                                    <p class="fs-4"><span class="fw-bolder">Período: </span>{{education.startDate}} - {{education.endingDate}}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li class="col-12 card mb-3">
-                    <div class="row g-0">
-                        <div class="col-sm-3 d-flex align-items-center">
-                            <div class="edu-img"><img src="../../../assets/images/unc3_c.jpg" alt="Logo de la UNIVERSIDAD NACIONAL DE CORDOBA"
-                                    class="img-fluid"></div>
-                        </div>
-                        <div class="col-sm-9">
-                            <div class="card-body">
-
-                                <h2 class="card-title display-6 text-center">Título: Bachiller en Ciencias Aplicadas</h2>
-                                <p class="card-text fs-4">Carrera: Ingeniería en Computación. Facultad de Ciencias Exactas, Físicas y Naturales - UNIVERSIDAD NACIONAL DE CORDOBA</p>
-                                <div class="col-sm">
-                                    <p class="fs-4"><span class="fw-bolder">Período: </span>2002-2021</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
         <div class="study">
             <h2>ESTUDIOS SECUNDARIOS</h2>
         </div>
@@ -76,7 +84,7 @@
         <div class="col-lg-12">
             <ul>
                 <li class="cursos">
-                    <h2>PROGRAMACIÓN DE APLICACIONES ANDROID CON APP INVENTOR 2</h2> - <h3>En curso</h3>
+                    <h2>PROGRAMACIÓN DE APLICACIONES ANDROID CON APP INVENTOR 2</h2> - <h3>2022</h3>
                     <p>Universidad Tecnológica Nacional - FACULTAD REGIONAL TUCUMÁN</p>
                 </li>
                 <li class="cursos">

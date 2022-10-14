@@ -9,6 +9,7 @@ import { PersonComponent } from './components/person/person.component';
 import { PersonService } from './components/person/person.service';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { EducationComponent } from './components/education/education.component';
+import { EducationService } from './service/education.service';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ProjectsComponent } from './components/projects/projects.component';
@@ -51,7 +52,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [PersonService],
+  providers: [PersonService, EducationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
