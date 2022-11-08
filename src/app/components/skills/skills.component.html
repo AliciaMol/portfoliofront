@@ -1,89 +1,17 @@
 <section id="skills" class="container-fluid">
-    <div class="row g-0">
+    <div>
         <div class="row">
-            <h1>SKILLS HARD</h1>
+            <h1>HABILIDADES</h1>
         </div>
-        <div class="col-sm-3 d-flex text-center align-items-center" >
-            <circle-progress 
-                [percent]="45" 
-                [title]="'HTML'"
-                [imageSrc]="'../assets/images/html.png'"
-                [showImage]="true"
-                [outerStrokeColor]="'#ea3d63'"
-                [innerStrokeColor]="'#993688'"
-                [backgroundColor]="'#5330a9'"></circle-progress>
-        </div>
-        <div class="col-sm-3 d-flex align-items-center">
-            <circle-progress 
-                [percent]="40"
-                [title]="'CSS'"
-                [imageSrc]="'../assets/images/css.png'"
-                [showImage]="true"
-                [outerStrokeColor]="'#993688'"
-                [innerStrokeColor]="'#5330a9'"
-                [backgroundColor]="'#ea3d63'"></circle-progress>
-        </div>
-        <div class="col-sm-3 d-flex align-items-center">
-            <circle-progress 
-                [percent]="25" 
-                [title]="'JS'"
-                [imageSrc]="'../assets/images/js.png'"
-                [showImage]="true"
-                [outerStrokeColor]="'#5330a9'"
-                [innerStrokeColor]="'#ea3d63'"
-                [backgroundColor]="'#993688'"></circle-progress>
-        </div>
-        <div class="col-sm-3 d-flex align-items-center">
-            <circle-progress 
-                [percent]="40" 
-                [title]="'C'"
-                [imageSrc]="'../assets/images/c.png'"
-                [showImage]="true"
-                [outerStrokeColor]="'#ea3d63'"
-                [innerStrokeColor]="'#993688'"
-                [backgroundColor]="'#5330a9'"></circle-progress>
-        </div>
-    </div>
 
-    <div class="row g-0">
-        <div class="row">
-            <h1>SKILLS SOFT</h1>
-        </div>
-        <div class="col-sm-3 d-flex text-center align-items-center" >
-            <circle-progress 
-                [percent]="100" 
-                [title]="'Expresión'"
-                [showImage]="false"
-                [outerStrokeColor]="'#5330a9'"
-                [innerStrokeColor]="'#ea3d63'"
-                [backgroundColor]="'#993688'"></circle-progress>
-        </div>
-        <div class="col-sm-3 d-flex align-items-center">
-            <circle-progress 
-                [percent]="100"
-                [title]="'Comprensión'"
-                [showImage]="false"
-                [outerStrokeColor]="'#ea3d63'"
-                [innerStrokeColor]="'#993688'"
-                [backgroundColor]="'#5330a9'"></circle-progress>
-        </div>
-        <div class="col-sm-3 d-flex align-items-center">
-            <circle-progress 
-                [percent]="100" 
-                [title]="'Colaboración'"
-                [showImage]="false"
-                [outerStrokeColor]="'#993688'"
-                [innerStrokeColor]="'#5330a9'"
-                [backgroundColor]="'#ea3d63'"></circle-progress>
-        </div>
-        <div class="col-sm-3 d-flex align-items-center">
-            <circle-progress 
-                [percent]="100" 
-                [title]="'Proactividad'"
-                [showImage]="false"
-                [outerStrokeColor]="'#5330a9'"
-                [innerStrokeColor]="'#ea3d63'"
-                [backgroundColor]="'#993688'"></circle-progress>
+        <div class="row g-0">
+            <div class="col-sm-3 d-flex text-center align-items-center" *ngFor="let oneskill of skills">
+                <circle-progress [percent]=oneskill.percent [title]="oneskill.title" [imageSrc]="oneskill.image_src"
+                    [showImage]="oneskill.show_image" [outerStrokeColor]="oneskill.outer_stroke_color"
+                    [innerStrokeColor]="oneskill.inner_stroke_color" [backgroundColor]="oneskill.background_color">
+                    <!--  -->
+                </circle-progress>
+            </div>
         </div>
     </div>
 </section>
@@ -94,4 +22,25 @@
     show_image;
     outer_stroke_color;
     inner_stroke_color;
-    background_color; -->
+    background_color;
+    (40,"CSS","../assets/images/css.png",true,"#993688","#5330a9","#ea3d63")
+    (25,"JS","../assets/images/js.png",true,"#5330a9","#ea3d63","#993688")
+    (40,"C","../assets/images/c.png",true,"#ea3d63","#993688","#5330a9")
+
+    100,"Comprensión",false,"#ea3d63","#993688","#5330a9"
+    100,"Colaboración",false,"#993688","#5330a9","#ea3d63"
+    100,"Proactividad",false,"#5330a9","#ea3d63","#993688"
+        -->
+<!-- <div class="row g-0">
+        <div class="row">
+            <h1>SKILLS HARD</h1>
+        </div>
+        <div class="col-sm-3 d-flex text-center align-items-center" *ngFor="let oneskill of skills">
+            <ng-template [ngIf]="!oneskill.type_skill">
+                <circle-progress [percent]=oneskill.percent [title]="oneskill.title" [imageSrc]="oneskill.image_src"
+                        [showImage]="oneskill.show_image" [outerStrokeColor]="oneskill.outer_stroke_color"
+                            [innerStrokeColor]="oneskill.inner_stroke_color" [backgroundColor]="oneskill.background_color">
+                </circle-progress>
+            </ng-template>
+        </div>
+    </div> -->

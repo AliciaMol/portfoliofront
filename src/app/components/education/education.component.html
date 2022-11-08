@@ -1,9 +1,9 @@
 <section id="education" class="container-fluid">
+    <h1>EDUCACIÓN</h1>
     <div *ngFor="let education of educations">
         <div class="row">
-            <h1>EDUCACIÓN</h1>
             <div class="study">
-                <h2>ESTUDIOS UNIVERSITARIOS</h2>
+                <h2>ESTUDIO UNIVERSITARIO</h2>
             </div>
             <div class="col-lg-12">
                 <ul>
@@ -20,14 +20,14 @@
                                     <p class="card-text fs-4">Carrera: {{education.career}}. {{education.faculty}} -
                                         {{education.house_of_studies}}</p>
                                     <div class="col-sm">
-                                        <p class="fs-4"><span class="fw-bolder">Período: </span>{{education.start_date}}
-                                            - {{education.ending_date}}</p>
+                                        <p class="fs-4"><span class="fw-bolder">Fecha finalización: </span>{{education.ending_date}} </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li class="col-12 card mb-3">
+                    <!-- {{education.start_date}} -  -->
+                    <!-- <li class="col-12 card mb-3">
                         <div class="row g-0">
                             <div class="col-sm-3 d-flex align-items-center">
                                 <div class="edu-img"><img src="../../../assets/images/unc3_c.jpg"
@@ -46,7 +46,7 @@
                                 </div>
                             </div>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
 

@@ -17,6 +17,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SkillsService } from './service/skills.service';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [PersonService, EducationService],
+  providers: [PersonService, EducationService, SkillsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
