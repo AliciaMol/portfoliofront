@@ -19,17 +19,17 @@ export class SkillsService {
 
   /* addSkill*/
   public addSkill(skill: Skill): Observable<Skill> {
-    return this.http.post<Skill>(`${this.apiServerUrl}/skill/add`, skill);
+    return this.http.post<Skill>(`${this.apiServerUrl}/skills/add`, skill);
   }
 
   /*updateSkill*/
   public editSkill(skill: Skill): Observable<Skill> {
-    return this.http.put<Skill>(`${this.apiServerUrl}/skill/update`, skill);
+    return this.http.put<Skill>(`${this.apiServerUrl}/skills/update`, skill);
   }
   
   /*deleteSkill*/
   public deleteSkill(skillId: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiServerUrl}/skill/delete/${skillId}`);
+    return this.http.delete<void>(`${this.apiServerUrl}/skills/delete/${skillId}`);
     
   }
 }

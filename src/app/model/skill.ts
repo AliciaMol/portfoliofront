@@ -1,5 +1,5 @@
 export interface Skill{
-    id?: number;
+    id: number;
     person_id: number;
     type_skill: boolean;   //hard o soft
     percent: number;    

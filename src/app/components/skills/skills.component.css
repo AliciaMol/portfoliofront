@@ -6,6 +6,46 @@
 .d-flex{
     justify-content: center
 }
+
+.boton {
+    width: 1.5em;
+    height: 1.5em;
+    color: white;
+    text-align: center;
+    align-items: center;
+    padding: .4em;
+    border-radius: 3px;
+    /* margin-top: 10px; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.btn-group{
+    justify-content: flex-end;
+}
+.btn-plus {
+    background: #ea3d63;
+    margin: 2%;
+    display: flex;
+}
+
+.btn-edit {
+    background: #9e3685;
+    margin: 1%;
+}
+.btn-delete {
+    background: #512ea9;
+    margin: 1%;
+}
+.titlecont{
+    display: flex;
+    align-items: center;
+}
+.modal-header{
+    background-color: #993688;
+    color: white;
+
+}
 /*Colores rosa #dd3c69 #ea3d63 #e93d63 
           azul #512ea9 #5330a9 #502fa8; 
           lila #9e3685 #993688 #953588*/

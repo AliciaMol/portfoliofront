@@ -83,7 +83,7 @@ export class SkillsComponent implements OnInit {
     });
   }
 
-  public onOpenModal(mode: string, skill: Skill | undefined): void {
+  public onOpenModal(mode: string, skill: Skill|undefined): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
     button.type = 'button';
@@ -91,6 +91,7 @@ export class SkillsComponent implements OnInit {
     button.setAttribute('data-toggle', 'modal');
     if (mode === 'add') {
       button.setAttribute('data-target', '#addSkillModal');
+      console.log("tratando de agregar skill");
     }
     if (mode === 'edit') {
       this.editSkill = skill;
