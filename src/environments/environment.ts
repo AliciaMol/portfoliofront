@@ -13,7 +13,7 @@ export const environment = {
   production: false,
   /*En un atributo vamos a cargar la url de base para el servidor de nuestro backend, entonces
   podemos acceder a esta url desde el servicio de personas usando nuestra variable apiBaseUrl */
-  apiBaseUrl:'https://portfoliomolinaback.herokuapp.com'
+  apiBaseUrl: 'https://portfoliomolinaback.herokuapp.com'//'http://localhost:8080' //
 };
 
 /*
