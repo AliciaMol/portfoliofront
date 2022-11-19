@@ -11,15 +11,15 @@ import { NewUser } from '../model/new-user';
 })
 export class AuthenticationService {
 
-  url = environment.apiAuthUrl;
+  private url = environment.apiAuthUrl;
 
   constructor(private httpClient: HttpClient) { }
 
   public neww(newUser: NewUser): Observable<any> {
-    return this.httpClient.post<any>(this.url + 'new', newUser);
+    return this.httpClient.post<any>(this.url + '/new', newUser);
   }
 
   public login(loginUser: LoginUser): Observable<JwtDTO> {
-    return this.httpClient.post<JwtDTO>(this.url + 'login', loginUser);
+    return this.httpClient.post<JwtDTO>(this.url + '/login', loginUser);
   }
 }
