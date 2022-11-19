@@ -1,7 +1,7 @@
 <section id="skills" class="container-fluid">
     <div id="main-container">
         <div class="titlecont">
-            <h1 class="titlesection">HABILIDADES</h1><a (click)="onOpenModal('add', undefined)" class="boton btn-plus"
+            <h1 class="titlesection">HABILIDADES</h1><a *ngIf="isAdmin" (click)="onOpenModal('add', undefined)" class="boton btn-plus"
                 data-original-title="Add"><i class="fa fa-plus"></i></a> 
         </div>
         <!-- <h1 class="titlesection">HABILIDADES <button (click)="onOpenModal('add', undefined)" type="button" class="boton btn-plus">
@@ -9,7 +9,7 @@
         <div class="row g-0">
             <div class="col-sm-3 d-flex text-center align-items-center" *ngFor="let oneskill of skills">
                 <div class="row btn-group btn-group-sm">
-                    <div class="d-flex justify-content-end">
+                    <div *ngIf="isAdmin" class="d-flex justify-content-end">
                         <!-- *ngIf="isAdmin" -->
                         <!-- Aquí tenemos el BOTÓN con el lapicito para editar "fa fa pencil" -->
                         <a (click)="onOpenModal('edit', oneskill)" class="boton btn-edit" data-original-title="Edit"><i

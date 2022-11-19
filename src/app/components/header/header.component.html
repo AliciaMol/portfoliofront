@@ -6,19 +6,23 @@
         </div>
 
         <div class="social">
-            <a href="http://www.linkedin.com"> <img src="../../../assets/images/linkedin.png"
+            <a href="https://www.linkedin.com/in/ali-molina/"> <img src="../../../assets/images/linkedin.png"
                     alt="Logo y link de LinkedIn"></a>
             <a href="http://github.com/AliciaMol"> <img src="../../../assets/images/github.png"
                     alt="Logo y link de GitHub"></a>
-            <a href=""> <img src="../../../assets/images/duolingo.png" alt="Logo y link de Duolingo"></a>
-            <a href="http://"> <img src="../../../assets/images/twitter.png" alt="Logo y link de Twitter"></a>
-            <a href="http://"> <img src="../../../assets/images/facebook.png" alt="Logo y link de Facebook"></a>
+            <a href="https://www.duolingo.com/profile/AliM10"> <img src="../../../assets/images/duolingo.png" alt="Logo y link de Duolingo"></a>
+            <a href="https://twitter.com/"> <img src="../../../assets/images/twitter.png" alt="Logo y link de Twitter"></a>
+            <a href="https://www.facebook.com/"> <img src="../../../assets/images/facebook.png" alt="Logo y link de Facebook"></a>
 
         </div>
         <div>
-            <button type="button" class="btn btn-outline-light">LogIn</button>
-            <!-- (click)="login()" -->
+            <button *ngIf="!isLogged" type="button" class="btn btn-outline-light" routerLink="/login">
+                <i class="fa fa-sign-in" aria-hidden="true"></i> Iniciar Sesión</button>
+        
+            <button *ngIf="isLogged" (click)="onLogOut()" type="button" class="btn btn-outline-light">
+                <i class="fa fa-sign-out" aria-hidden="true"></i> Cerrar Sesión</button>
         </div>
+
     </div>
 
 </nav>
@@ -34,7 +38,6 @@
     </div>
     <div class="row">
         <!-- <app-headerbarnav></app-headerbarnav> -->
-        <!-- <app-headerbanner></app-headerbanner> -->
         <div>
             <img class="img-banner" src="../../../assets/images/—Pngtree—computer programming_5399562.png"
                 alt="Foto de —Pngtree—computer programming_5399562.">

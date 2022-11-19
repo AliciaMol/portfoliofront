@@ -3,6 +3,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
 import { Skill } from '../../model/skill';
 import { SkillsService } from '../../service/skills.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-skills',
@@ -13,13 +14,21 @@ export class SkillsComponent implements OnInit {
   public skills: Skill[] = [];
   public editSkill: Skill | undefined;
   public deleteSkill: Skill | undefined;
+  roles: string[] = [];
+  isAdmin = false;
   // public type =this.skills[2];
 
-  constructor(private skillService: SkillsService) { }
+  constructor(private skillService: SkillsService, private tokenService: TokenService) { }
 
   ngOnInit(): void {
     this.getSkills();
     console.log(this.skills);
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(role => {
+      if (role === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
   }
 
   /*GET ALL SKILLS */

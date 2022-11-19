@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { TokenService } from 'src/app/service/token.service';
 import { Person } from './person';
 import { PersonService } from './person.service';
 
@@ -22,17 +23,25 @@ export class PersonComponent implements OnInit {
   public editPerson: Person | undefined;
   /*deletePerson se usará para representar al persona a borrar y se podrá usar este persona en el template (html) porque se declara a nivel de clase */
   public deletePerson: Person | undefined;
+  roles: string[] = [];
+  isAdmin = false;
 
   /*CONSTRUCTOR */
   /*Vamos a inyectar nuestro servicio en el constructor para poder tener acceso al mismo*/
-  constructor(private personService: PersonService) { }
+  constructor(private personService: PersonService, private tokenService: TokenService) { }
 
   /* Luego del constructor vamos a sobreescribir el método de inicialización, no posee parámetros y no devuelve nada, VOID.
   Todo lo que hay que hacer es llamar a las funciones que queremos que se inicien cada vez que el componente se cargue o inicie.
   Cada vez que se inicie va a llamar a la función ngOnInit la cual llamará a get.Persons la cual va a establecer la variable persons cada vez que obtenga la respuesta del servidor y si recibe un error mostrará la alerta al usuario. */
   ngOnInit() {
     this.getPersons();
-    console.log(this.persons);
+    // console.log(this.persons);
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(role => {
+      if (role === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
   }
 
   /*GET ALL PERSONAS */

@@ -2,7 +2,7 @@
     <div class="container-fluid" id="main-container">
         <div *ngFor="let person of persons">
             <div class="row">
-                <div class="float-right btn-group btn-group-sm">
+                <div  *ngIf="isAdmin" class="float-right btn-group btn-group-sm">
                     <a (click)="onOpenModal('add', undefined)" class="boton btn-plus" data-original-title="Add"><i
                             class="fa fa-plus"></i></a>
                     <!-- Aquí tenemos el BOTÓN con el lapicito para editar "fa fa pencil" -->
